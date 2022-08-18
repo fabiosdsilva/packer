@@ -15,7 +15,7 @@ PWD=$$PWD
 WORKSPACE=${SET_WORKSPACE}
 
 ## Initial
-packer: terraform-workspace
+packer: packer-workspace
 	docker run --rm -v ${PWD}:/app -w /app \
 	-e AWS_ACCESS_KEY_ID=${ACCESS_KEY} \
 	-e AWS_SECRET_ACCESS_KEY=${SECRET_ACCESS} \
