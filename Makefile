@@ -15,16 +15,8 @@ PWD=$$PWD
 WORKSPACE=${SET_WORKSPACE}
 
 ## Initial
-packer: packer-workspace
+packer:
 	docker run --rm -v ${PWD}:/app -w /app \
 	-e AWS_ACCESS_KEY_ID=${ACCESS_KEY} \
 	-e AWS_SECRET_ACCESS_KEY=${SECRET_ACCESS} \
 	-it --entrypoint "" ${DOCKER_IMAGE} sh
-
-## Set workspace 
-packer-workspace:
-	docker run --rm -v ${PWD}:/app -w /app \
-	-e AWS_ACCESS_KEY_ID=${ACCESS_KEY} \
-	-e AWS_SECRET_ACCESS_KEY=${SECRET_ACCESS} \
-	-d ${DOCKER_IMAGE} workspace select ${WORKSPACE} \
-	Selected worksplace ${WORKSPACE}
